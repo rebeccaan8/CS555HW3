@@ -44,7 +44,7 @@ def division(num1, num2):
     return num1 / num2
 
 
-#bad smell because of repeitive code. make a function to take in num1 and num2 instead
+#bad smell because of repetitive code. make a function to take in num1 and num2 instead
 def option(choice):
     if choice == '1':
         num1 = input("Enter first number: ")
