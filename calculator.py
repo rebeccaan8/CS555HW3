@@ -38,7 +38,9 @@ def division(num1, num2):
         return  '0'
     
     if num2 == 0:
-        return "Error: Division by zero is not allowed."
+        print("Error: Division by zero is not allowed.")
+        return '0'
+    
     return num1 / num2
 
 
