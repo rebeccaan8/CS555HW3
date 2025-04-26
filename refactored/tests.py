@@ -5,11 +5,34 @@ import os
 
 # Add parent directory to path
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from calculator import validate_numbers, addition, subtraction, multiplication, division
+from calculator import validate_numbers, addition, subtraction, multiplication, division, option
 
 
 class TestRefactoredCalculator(unittest.TestCase):
 
+    def test_options(self):
+        # Test with invalid option
+        self.assertEqual(option("5"), '0')
+
+    def test_return(self):
+        # Test with valid numbers
+        self.assertEqual(addition("5", "7"), 12)
+        self.assertEqual(subtraction("10", "7"), 3)
+        self.assertEqual(multiplication("5", "7"), 35)
+        self.assertEqual(division("10", "2"), 5)
+
+        # Test with invalid first number
+        self.assertEqual(addition("abc", "7"), '0')
+        self.assertEqual(subtraction("abc", "7"), '0')
+        self.assertEqual(multiplication("abc", "7"), '0')
+        self.assertEqual(division("abc", "7"), '0')
+
+        # Test with invalid second number
+        self.assertEqual(addition("5", "xyz"), '0')
+        self.assertEqual(subtraction("5", "xyz"), '0')
+        self.assertEqual(multiplication("5", "xyz"), '0')
+        self.assertEqual(division("5", "xyz"), '0')
+        
     def test_validate_numbers(self):
         # Test with valid numbers
         is_valid, n1, n2 = validate_numbers("5", "7")

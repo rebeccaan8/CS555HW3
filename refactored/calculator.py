@@ -61,7 +61,7 @@ def option(choice):
 
     if choice not in operations:
         print("Error: Invalid choice. Please try again.")
-        return
+        return '0'
 
     operation_func, operation_name = operations[choice]
 
